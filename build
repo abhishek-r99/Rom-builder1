@@ -6,14 +6,16 @@ curl -L http://ix.io/2FhM > sasta.patch
 git am sasta.patch 
 cd /tmp/rom
 cd frameworks/av 
-wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
+
+#wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
+
 patch -p1 < *.patch
 cd /tmp/rom
 rm -rf vendor/mediatek/ims/packages/EngineerMode
 rm -rf vendor/mediatek/ims/packages/ImsService
 cd /tmp/rom
 source build/envsetup.sh
-lunch styx_RMX2020-userdebug
+lunch du_r5x-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -38,11 +40,11 @@ make_metalava(){
 
 make_rom(){
 	m styx-ota
-	zip=$(up out/target/product/RMX2020/*zip)
+	zip=$(up out/target/product/r5x/*zip)
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh
-	./transfer wet out/target/product/RMX2020/*zip
+	./transfer wet out/target/product/r5x/*zip
 }
 
 make_metalava
