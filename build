@@ -1,41 +1,27 @@
 #!/bin/bash
 cd /tmp/rom
-rm -rf .repo
+rm -rf .repo &
 
-
-
-cd /tmp/rom
-
-
-#wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
-
-
-
-
-
+#wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch
 
 source build/envsetup.sh
 lunch du_r5x-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
-cd /tmp/rom
-export CCACHE_DIR=/tmp/ccache  ##use additional flags if you need(optional)
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
-
-ccache -M 30G
+ccache -M 20G
 ccache -o compression=true
 ccache -z
-ccache -c
 
 up(){
 	curl --upload-file $1 https://transfer.sh/
 }
 
 make_metalava(){
-	m api-stubs-docs
-	m system-api-stubs-docs
-	m test-api-stubs-docs
+	mka api-stubs-docs
+	mka system-api-stubs-docs
+	mka test-api-stubs-docs
 }
 
 make_rom(){
@@ -43,9 +29,8 @@ make_rom(){
 	zip=$(up out/target/product/r5x/*zip)
 	echo " "
 	echo "$zip"
-	curl -sL https://git.io/file-transfer | sh
-	./transfer wet out/target/product/r5x/*zip
 }
 
 make_metalava
-make_rom
+make_rom &
+sleep 4500 && kill "$!"
