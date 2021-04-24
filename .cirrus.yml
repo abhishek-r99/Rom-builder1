@@ -16,7 +16,7 @@ task:
     build_script:
       - bash build
     uploadccache_script
-      - bash upload_cache
+      - bash upload_ccache
 
 #start build 
 

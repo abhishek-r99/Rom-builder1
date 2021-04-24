@@ -8,6 +8,7 @@ source build/envsetup.sh
 lunch du_r5x-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
+export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
 ccache -M 20G
