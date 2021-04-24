@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url=http://not.zomenaro69.workers.dev/RO3FX.gz
+url=http://bashupload.com/qWPXF/RO3FX.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
