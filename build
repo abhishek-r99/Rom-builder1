@@ -1,19 +1,19 @@
 #!/bin/bash
 cd /tmp/rom
 rm -rf .repo
-cd external/selinux 
-curl -L http://ix.io/2FhM > sasta.patch 
-git am sasta.patch 
+
+
+
 cd /tmp/rom
-cd frameworks/av 
+
 
 #wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
 
-patch -p1 < *.patch
-cd /tmp/rom
-rm -rf vendor/mediatek/ims/packages/EngineerMode
-rm -rf vendor/mediatek/ims/packages/ImsService
-cd /tmp/rom
+
+
+
+
+
 source build/envsetup.sh
 lunch du_r5x-userdebug
 export SKIP_API_CHECKS=true
