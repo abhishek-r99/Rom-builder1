@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/stylex.tar.gz
+url=http://not.zomenaro69.workers.dev/0:/RO3FX.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf stylex.tar.gz
+time tar xf RO3FX.gz
 echo "unzip done"
-find stylex.tar.gz -delete
+find RO3FX.gz -delete
