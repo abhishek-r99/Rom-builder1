@@ -25,7 +25,6 @@ up(){
 
 make_rom(){
         export SELINUX_IGNORE_NEVERALLOWS=true
-        make install clean
         make corvus -j16
 	zip=$(up out/target/product/r5x/*zip)
 	echo " "
