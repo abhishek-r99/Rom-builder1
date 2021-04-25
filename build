@@ -48,5 +48,6 @@ make_rom(){
 }
 
 make_metalava
-make_rom &
-
+make_rom
+up
+tg_post_msg &
