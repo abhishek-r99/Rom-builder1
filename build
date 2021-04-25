@@ -2,10 +2,8 @@
 cd /tmp/rom
 rm -rf .repo &
 
-#wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch
-
 source build/envsetup.sh
-lunch du_r5x-userdebug
+lunch du_r5x-eng
 export SELINUX_IGNORE_NEVERALLOWS=true
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
@@ -20,11 +18,11 @@ up(){
 	curl --upload-file $1 https://transfer.sh/
 }
 
-make_metalava(){
-	mka api-stubs-docs -j16
-	mka system-api-stubs-docs -j16
-	mka test-api-stubs-docs -j16
-}
+#make_metalava(){
+#	mka api-stubs-docs -j16
+#	mka system-api-stubs-docs -j16
+#	mka test-api-stubs-docs -j16
+#}
 
 make_rom(){
         make corvus -j16
@@ -33,6 +31,6 @@ make_rom(){
 	echo "$zip"
 }
 
-make_metalava
+#make_metalava
 make_rom &
 sleep 5200 && kill "$!"
