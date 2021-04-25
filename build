@@ -6,7 +6,7 @@ rm -rf .repo &
 
 source build/envsetup.sh
 lunch du_r5x-userdebug
-
+export SELINUX_IGNORE_NEVERALLOWS=true
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 export CCACHE_DIR=/tmp/ccache
