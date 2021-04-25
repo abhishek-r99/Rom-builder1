@@ -3,7 +3,7 @@
 url=http://not.zomenaro69.workers.dev/0:down/RO3FX.gz
 
 cd /tmp # Where to download cccahe
-time aria2c $url -x16 -s50
+time aria2c $url -x16 -s50 || time aria2c $url -x16 -s50
 echo "dl done"
 time tar xf RO3FX.gz
 echo "unzip done"

@@ -2,7 +2,8 @@ env: # Environt variable to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
     rclone_config: "ENCRYPTED[1e4bfe76d933bdff3a61adb9529d60287b19bff7e61797b027ac3df52af879bb5a9d03d72cd0880ff1c01871b31d1e7a"
-
+    CHATID: ENCRYPTED[f41c21fe8d8dd5e3d6706037a5690f7b941f401bafaf17938c82fe26d7e1774a2a3ffebdda812e0cd69e4c7188929597]
+    API_BOT: ENCRYPTED[8cab5e443141579fd73ca7858ff186b98ee4b140c5c9e8fa0917bdb863cc4ef84ccb8f6b7013155b244f95c897e719c8]
 
 task:
     name: Buildbomt

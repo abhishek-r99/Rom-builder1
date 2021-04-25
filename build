@@ -4,6 +4,7 @@ rm -rf .repo &
 
 source build/envsetup.sh
 lunch du_r5x-eng
+export SELINUX_IGNORE_NEVERALLOWS=true
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 export CCACHE_DIR=/tmp/ccache
@@ -12,6 +13,16 @@ export USE_CCACHE=1
 ccache -M 20G
 ccache -o compression=true
 ccache -z
+
+# Telgram env setup
+export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
+export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
+
+tg_post_msg() {
+        curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
+        -d "parse_mode=html" \
+        -d text="$1"
+}
 
 up(){
 	curl --upload-file $1 https://transfer.sh/
@@ -24,11 +35,16 @@ up(){
 #}
 
 make_rom(){
-        export SELINUX_IGNORE_NEVERALLOWS=true
+	tg_post_msg "<b>Rom building CI Build Triggered for Realme 5x</b>" "$CHATID"
         make corvus -j16
-	zip=$(up out/target/product/r5x/*zip)
-	echo " "
-	echo "$zip"
+	if [ -f out/target/product/r5x/*zip ]; then
+		zip=$(up out/target/product/r5x/*zip)
+		echo " "
+		echo "$zip"
+		tg_post_msg "<b>Build Completed</b>%0A%0A<b>Link : </b> <code>"$zip"</code>" "$CHATID"
+	else
+		tg_post_msg "<b>OMG! Build Failed, check cirrus console and fix error</b>" "$CHATID"
+	fi
 }
 
 #make_metalava
