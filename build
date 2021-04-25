@@ -3,7 +3,7 @@ cd /tmp/rom
 rm -rf .repo &
 
 source build/envsetup.sh
-lunch du_r5x-eng
+lunch du_r5x-userdebug
 export SELINUX_IGNORE_NEVERALLOWS=true
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
@@ -28,11 +28,11 @@ up(){
 	curl --upload-file $1 https://transfer.sh/
 }
 
-#make_metalava(){
-#	mka api-stubs-docs -j16
-#	mka system-api-stubs-docs -j16
-#	mka test-api-stubs-docs -j16
-#}
+make_metalava(){
+	mka api-stubs-docs -j16
+	mka system-api-stubs-docs -j16
+	mka test-api-stubs-docs -j16
+}
 
 make_rom(){
 	tg_post_msg "<b>Rom building CI Build Triggered for Realme 5x</b>" "$CHATID"
@@ -47,6 +47,6 @@ make_rom(){
 	fi
 }
 
-#make_metalava
+make_metalava
 make_rom &
-sleep 5200 && kill "$!"
+
