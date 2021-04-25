@@ -6,7 +6,7 @@ rm -rf .repo &
 
 source build/envsetup.sh
 lunch du_r5x-userdebug
-export SELINUX_IGNORE_NEVERALLOWS := true
+
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 export CCACHE_DIR=/tmp/ccache
@@ -21,9 +21,9 @@ up(){
 }
 
 make_metalava(){
-	mka api-stubs-docs
-	mka system-api-stubs-docs
-	mka test-api-stubs-docs
+	mka api-stubs-docs -j16
+	mka system-api-stubs-docs -j16
+	mka test-api-stubs-docs -j16
 }
 
 make_rom(){
