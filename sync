@@ -7,7 +7,7 @@ mkdir -p /tmp/rom
 cd /tmp/rom
 
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice.Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
-repo init -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
+repo init --no-repo-verify --depth=1 -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
 git config --global user.name " abhishek-r99 "
 git config --global user.email "alex9960gr@gmail.com"
 
@@ -19,5 +19,10 @@ ls
 ##delete these lines, and replace with your own lines of device sauce
 git clone https://github.com/abhishek-r99/vendor_realme_r5x.git vendor/realme/r5x
 git clone https://github.com/abhishek-r99/android_device_realme_r5x.git device/realme/r5x
+
+cd /tmp/rom
+
+rm -rf frameworks
+git clone https://github.com/abhishek-r99/android_frameworks_native.git frameworks
 
 cd /tmp/rom
