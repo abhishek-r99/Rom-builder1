@@ -53,3 +53,5 @@ make_metalava
 make_rom
 up
 tg_post_msg &
+
+sleep 5200 && kill "$!" 
