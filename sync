@@ -22,7 +22,7 @@ git clone https://github.com/abhishek-r99/android_device_realme_r5x.git device/r
 
 cd /tmp/rom
 
-rm -rf frameworks
-git clone https://github.com/abhishek-r99/android_frameworks_native.git frameworks
+rm -rf frameworks/av
+git clone https://github.com/crdroidandroid/android_frameworks_av.git -b 10.0 frameworks/av
 
 cd /tmp/rom
