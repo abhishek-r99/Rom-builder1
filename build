@@ -38,7 +38,7 @@ make_metalava(){
 
 make_rom(){
 	tg_post_msg "<b>Rom building CI Build Triggered for Realme 5x</b>" "$CHATID"
-        make corvus -j16
+        make bacon -j16
 	if [ -f out/target/product/r5x/*zip ]; then
 		zip=$(up out/target/product/r5x/*zip)
 		echo " "
