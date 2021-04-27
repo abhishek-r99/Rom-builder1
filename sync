@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt install wget
-MANIFEST=https://github.com/Corvus-ROM/android_manifest.git
-BRANCH=10
+MANIFEST=https://github.com/Fusion-OS/android_manifest.git
+BRANCH=ten
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -17,12 +17,7 @@ pwd
 ls
 
 ##delete these lines, and replace with your own lines of device sauce
-git clone https://github.com/abhishek-r99/vendor_realme_r5x.git vendor/realme/r5x
+git clone --single-branch --branch fusion-a10 https://github.com/abhishek-r99/vendor_realme_r5x.git vendor/realme/r5x
 git clone https://github.com/abhishek-r99/android_device_realme_r5x.git device/realme/r5x
-
-cd /tmp/rom
-
-rm -rf frameworks/av
-git clone https://github.com/crdroidandroid/android_frameworks_av.git -b 10.0 frameworks/av
 
 cd /tmp/rom
