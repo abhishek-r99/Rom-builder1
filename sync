@@ -17,7 +17,7 @@ pwd
 ls
 
 ##delete these lines, and replace with your own lines of device sauce
-git clone --single-branch --branch fusion-a10 https://github.com/abhishek-r99/vendor_realme_r5x.git vendor/realme/r5x
-git clone https://github.com/abhishek-r99/android_device_realme_r5x.git device/realme/r5x
+git clone --single-branch --branch fusion-a10 https://github.com/abhishek-r99/vendor_realme_r5x vendor/realme/r5x
+git clone https://github.com/abhishek-r99/android_device_realme_r5x device/realme/r5x
 
 cd /tmp/rom
