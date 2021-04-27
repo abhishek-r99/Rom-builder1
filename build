@@ -1,8 +1,10 @@
 #!/bin/bash
 cd /tmp/rom
 rm -rf .repo &
+cd /tmp/rom
 
 source build/envsetup.sh
+
 lunch aosp_r5x-userdebug
 export SELINUX_IGNORE_NEVERALLOWS=true 
 export SKIP_API_CHECKS=true
@@ -37,6 +39,7 @@ make_metalava(){
 make_rom(){
 	tg_post_msg "<b>Rom building CI Build Triggered for Realme 5x</b>" "$CHATID"
         mka bacon -j16
+	
 	if [ -f out/target/product/r5x/*zip ]; then
 		zip=$(up out/target/product/r5x/*zip)
 		echo " "
