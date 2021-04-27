@@ -3,7 +3,7 @@ cd /tmp/rom
 rm -rf .repo &
 
 source build/envsetup.sh
-lunch du_r5x-userdebug
+lunch aosp_r5x-userdebug
 export SELINUX_IGNORE_NEVERALLOWS=true
 export USE_GAPPS=false
 export DU_BUILD_TYPE=Unofficial
