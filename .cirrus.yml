@@ -7,11 +7,11 @@ env: # Environt variable to pass to all tasks
 
 task:
     name: Buildbomt
-    timeout_in: 240m
+    timeout_in: 120m
     container:
       image: mrkhan007/aosp:latest
       cpu: 8
-      memory: 30G
+      memory: 20G
     sync_script:
       - bash sync
     build_script:
