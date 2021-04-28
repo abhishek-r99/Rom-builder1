@@ -11,7 +11,7 @@ task:
     container:
       image: mrkhan007/aosp:latest
       cpu: 8
-      memory: 20G
+      memory: 32G
     sync_script:
       - bash sync
     build_script:
