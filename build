@@ -58,4 +58,4 @@ make_rom
 up
 tg_post_msg &
 
-sleep 4500 && kill "$!"
+sleep 5000 && kill "$!"
